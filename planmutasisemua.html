@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plan Mutasi & Delivery Harian</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Start Navbar -->
+    <div class="topnav" id="myTopnav">
+      <a href="#home" class="active"><i class="bi bi-list"></i></a>
+      <a href="#">Kedatangan Unit</a>
+      <a href="#">Monitoring RO</a>
+      <a href="#">Monitoring Unit PDI</a>
+      <a href="#">Plan Mutasi dan Delivery Harian</a>
+      <a href="#">Update Stock & Aging Unit</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="bi bi-list"></i>
+      </a>
+    </div>
+
+    <!-- End Navbar -->
+    <div class="body">
+      <!-- Start Title Kedatangan Unit -->
+      <div class="d-flex flex-row justify-content-between mt-1 border-bottom monitoring">
+        <div class="pt-5 lh-1">
+          <div>
+            <p class="fs-5 fw-bold"><i class="bi bi-gear"></i> Monitoring RO</p>
+          </div>
+          <div><p class="fs-5 fw-">Tabel Kedatangan RO</p></div>
+        </div>
+        <div class="d-flex">
+        <div class="me-auto">
+          <div class="btn btn-primary mt-5 d-flex mx-2" value=""><i class="bi bi-disc mx-1"></i>Impor Data</div>
+        </div>
+        <div class="">
+            <div class="btn btn-secondary mt-5 d-flex mx-2" value="">Kembali</div>
+          </div>
+        </div>
+      </div>
+      <!-- End Title Kedatangan Unit -->
+
+      <!-- Start Filter Table -->
+      <div class="d-flex flex-column mt-5 mb-5">
+        <div>
+          <h3>Filter Table</h3>
+        </div>
+        <div class="d-flex flex-row pt-4 filterkapal flex-wrap">
+          <div class="tanggalberangkat d-flex flex-column">
+            <label for="kapal">Serial Number</label>
+            <input class="kapal mt-2" type="text" id="kapal" name="fname" value="" placeholder="serial number ..." />
+          </div>
+          <div class="tanggalberangkat d-flex flex-column">
+            <label for="kapal">Nomor RO</label>
+            <input class="kapal mt-2" type="text" id="kapal" name="fname" value="" placeholder="nomor RO ..." />
+          </div>
+          <div>
+            <button type="button" class="btn btn-primary buttonfilter" value="Cari" style="--bs-btn-padding-y: 12px; --bs-btn-padding-x: 20px"><i class="bi bi-search"></i> Cari</button>
+          </div>
+          <div>
+            <button type="button" class="btn btn-light buttonfilter" value="Cari" style="--bs-btn-padding-y: 12px; --bs-btn-padding-x: 20px">Reset</button>
+          </div>
+        </div>
+      </div>
+      <!-- End Filter Table -->
+
+      <!-- Start Table -->
+      <!-- <div class="mt-5 border kelastabel "> -->
+        <table class="table table-striped table-responsive mt-5" id="paginationtable">
+          <thead>
+            <tr>
+              <th scope="col">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                </div>
+              </th>
+              <th scope="col">Serial Number</th>
+              <th scope="col">Tgl. Release RO</th>
+              <th scope="col">Tgl. Execute Actual</th>
+              <th scope="col">Nama Kapal</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr>
+              <th scope="row">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                </div>
+              </th>
+              <td>1231123123</td>
+              <td>mm/dd/yy</td>
+              <td>mm/dd/yy</td>
+              <td>KIRANA 1</td>
+              <td>
+                <a href=""><i class="bi bi-pencil-square"></i>Edit</a>
+                <a href=""><i class="bi bi-trash-fill"></i>Hapus</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                </div>
+              </th>
+              <td>1231123123</td>
+              <td>mm/dd/yy</td>
+              <td>mm/dd/yy</td>
+              <td>KIRANA 1</td>
+              <td>
+                <a href=""><i class="bi bi-pencil-square"></i>Edit</a>
+                <a href=""><i class="bi bi-trash-fill"></i>Hapus</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                </div>
+              </th>
+              <td>1231123123</td>
+              <td>mm/dd/yy</td>
+              <td>mm/dd/yy</td>
+              <td>KIRANA 1</td>
+              <td>
+                <a href=""><i class="bi bi-pencil-square"></i>Edit</a>
+                <a href=""><i class="bi bi-trash-fill"></i>Hapus</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                </div>
+              </th>
+              <td>1231123123</td>
+              <td>mm/dd/yy</td>
+              <td>mm/dd/yy</td>
+              <td>KIRANA 1</td>
+              <td>
+                <a href=""><i class="bi bi-pencil-square"></i>Edit</a>
+                <a href=""><i class="bi bi-trash-fill"></i>Hapus</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                </div>
+              </th>
+              <td>1231123123</td>
+              <td>mm/dd/yy</td>
+              <td>mm/dd/yy</td>
+              <td>KIRANA 1</td>
+              <td>
+                <a href=""><i class="bi bi-pencil-square"></i>Edit</a>
+                <a href=""><i class="bi bi-trash-fill"></i>Hapus</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <!-- </div> -->
+      <!-- End Table -->
+
+      <!-- Start Filter Page Table  -->
+
+      <!-- End Filter Page Table  -->
+      <script>
+        new DataTable("#paginationtable");
+      </script>
+    </div>
+  </body>
+</html>
